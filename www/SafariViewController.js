@@ -1,4 +1,10 @@
 var exec = require("cordova/exec");
+//alert('Injecting JS');
+window.handleOpenURL=(function (url){ //override the default handler
+  // alert('Deeplink call');
+   window.openedViaDeeplink = url;
+});
+
 module.exports = {
   isAvailable: function (callback) {
     var errorHandler = function errorHandler(error) {
